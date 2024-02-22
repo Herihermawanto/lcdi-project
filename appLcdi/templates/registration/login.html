@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-3">
+                <div class="card-header text-center bg bg-primary">
+                    Login
+                </div>
+                <div class="card-body">
+                    {% if form.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        Username atau password salah Silahkan coba lagi.
+                    </div>
+                    {% endif %}
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="id_username">Username</label>
+                            <input type="text" name="username" class="form-control" id="id_username" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password">Password</label>
+                            <input type="password" name="password" class="form-control" id="id_password" required>
+                        </div>
+                        <button class="btn btn-primary" style="float: right;">Masuk</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
